@@ -1,0 +1,501 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=100, initial-scale=1.0" />
+
+    <title>ZHAKSYBEK AMIRADIN – Resume</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      .resume-template-scope {
+        --text-colors-primary: rgb(27, 27, 27);
+        --background-color: rgba(255, 255, 255, 1);
+        --text-colors-secondary: rgb(90, 90, 90);
+
+        --other-service-colors-divider: rgba(0, 0, 0, 0.12);
+
+        --gap-40: 40px;
+        --gap-24: 24px;
+        --gap-16: 16px;
+        --gap-12: 12px;
+        --gap-8: 8px;
+        --gap-4: 4px;
+        --left-column: 180px;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      .resume-template-scope {
+        background: var(--background-color);
+        -webkit-font-smoothing: antialiased;
+        font-optical-sizing: auto;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 0;
+        font-family: 'Tinos', serif !important;
+        color: var(--text-colors-primary);
+      }
+
+      img,
+      picture,
+      video,
+      canvas,
+      svg {
+        display: block;
+        max-width: 100%;
+      }
+
+      p,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        overflow-wrap: break-word;
+      }
+
+      p {
+        text-wrap: pretty;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        text-wrap: balance;
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      @page {
+        size: A4;
+        margin: 10mm 0;
+      }
+
+      .resume {
+        display: flex;
+        max-width: 956px;
+        padding: 5px 40px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--gap-24);
+        margin-inline: auto;
+        background: var(--background-color);
+      }
+
+      .two-column-layout {
+        display: grid;
+        grid-template-columns: var(--left-column) 1fr;
+        gap: var(--gap-40);
+      }
+
+      .two-column-grid {
+        list-style: none;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--gap-12) var(--gap-40);
+      }
+
+      .flex-between {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+      }
+
+      .flex-column {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .text-primary {
+        color: var(--text-colors-primary);
+        font-size: 14px;
+        line-height: 15px;
+      }
+
+      .text-secondary {
+        color: var(--text-colors-secondary);
+        font-size: 14px;
+        line-height: 14px;
+      }
+
+      .text-large {
+        font-size: 14px;
+        line-height: 14px;
+      }
+
+      .text-title {
+        color: var(--text-colors-primary);
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 16px;
+      }
+
+      .text-heading {
+        color: var(--text-colors-primary);
+        font-size: 32px;
+        font-weight: 700;
+        line-height: 30px;
+        letter-spacing: 0.65px;
+        text-transform: uppercase;
+      }
+
+      .bold {
+        font-weight: 700;
+      }
+
+      .medium {
+        font-weight: 500;
+      }
+
+      .underline {
+        text-decoration: underline;
+      }
+
+      .resume__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        align-self: stretch;
+        gap: var(--gap-40);
+      }
+
+      .header__left {
+        display: flex;
+        align-items: center;
+        gap: var(--gap-16);
+      }
+
+      .header__content {
+        display: flex;
+        flex-direction: column;
+        gap: var(--gap-4);
+      }
+
+      .person__avatar {
+        display: flex;
+        flex: 0;
+        width: 80px;
+        aspect-ratio: 1;
+        border-radius: 50%;
+        border: 1px solid rgba(0, 0, 0, 0.15);
+      }
+
+      .section {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: var(--gap-12);
+      }
+
+      .section__title {
+        padding-bottom: var(--gap-10);
+        border-bottom: 1px solid var(--other-service-colors-divider);
+        text-transform: uppercase;
+      }
+
+      .experience__list,
+      .courses__list,
+      .interests__list,
+      .custom__list {
+        display: flex;
+        flex-direction: column;
+        gap: var(--gap-12);
+      }
+
+      .job__content {
+        gap: var(--gap-8);
+      }
+
+      .education__list,
+      .interest__list {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+      }
+
+      .experience__meta,
+      .education__details,
+      .course__details,
+      .interest__details,
+      .custom__details {
+        gap: var(--gap-4);
+      }
+
+      .job__bullets {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: var(--gap-4);
+      }
+
+      .skill__level,
+      .languages__level {
+        text-align: end;
+      }
+    </style>
+    <title>CV Resume</title>
+  </head>
+  <body>
+    <div
+      scale="0.46129707112970714"
+      class="resume-template-scope css-1cpqe14"
+      data-testid="filePreview"
+    >
+      <main class="resume">
+        <header class="resume__header">
+          <div class="header__left">
+            <div class="header__content">
+              <h1 class="person__name text-heading">ZHAKSYBEK AMIRADIN</h1>
+              <p class="person__role text-primary">Python Developer</p>
+            </div>
+          </div>
+          <div class="header__right flex-column">
+            <a href="tel:+7 771 244-11-71" class="contact__item text-primary"
+              >+7 771 244-11-71</a
+            >
+            <a
+              href="mailto:amiradinzhaksybek@gmail.com"
+              class="contact__item text-primary"
+            >
+              amiradinzhaksybek@gmail.com
+            </a>
+            <a
+              href="https://t.me/guesswwhosback"
+              class="contact__item text-primary"
+            >
+              telegram: @guesswwhosback
+            </a>
+          </div>
+        </header>
+
+        <section class="section">
+          <h2 class="section__title text-title">Professional summary</h2>
+          <p class="summary__text text-primary">
+            Python developer with strong proficiency in Django, FastAPI, and
+            TypeScript to build scalable and efficient web applications.
+            Experienced in leveraging Vue and React frameworks to enhance user
+            interface responsiveness and engagement. Focused on driving
+            innovation and delivering high-quality solutions to support dynamic
+            business needs.
+          </p>
+        </section>
+
+        <section class="section">
+          <h2 class="section__title text-title">Work experience</h2>
+
+          <div class="experience__list">
+            <article class="experience__item two-column-layout">
+              <div class="job__dates text-secondary text-large">
+                May 2024 – Dec 2025
+              </div>
+              <div class="job__content flex-column">
+                <div class="experience__meta flex-column">
+                  <h3 class="job__title text-title">Middle Python Developer</h3>
+                  <div class="job__company text-secondary">
+                    AVIATA -
+                    <span> Almaty, Kazakhstan </span>
+                  </div>
+                </div>
+                <ul class="job__bullets">
+                  <li class="text-primary">
+                    • Developed business travel service for legal entities
+                    (B2B), enabling corporate clients to book tickets, reserve
+                    hotels, and arrange transfers for employees.
+                  </li>
+                  <li class="text-primary">
+                    • Troubleshot and resolved issues in Python applications,
+                    enhancing application reliability and user experience.
+                  </li>
+                  <li class="text-primary">
+                    • Designed and implemented engineering solutions for product
+                    development, contributing to project efficiency and
+                    innovation.
+                  </li>
+                  <li class="text-primary">
+                    • Developed technical documentation for engineering
+                    processes and project specifications.
+                  </li>
+                  <li class="text-primary">
+                    • Collaborated with team members to implement software
+                    solutions for travel management.
+                  </li>
+                </ul>
+              </div>
+            </article>
+            <article class="experience__item two-column-layout">
+              <div class="job__dates text-secondary text-large">
+                Feb 2023 – Jan 2024
+              </div>
+              <div class="job__content flex-column">
+                <div class="experience__meta flex-column">
+                  <h3 class="job__title text-title">Middle Python Developer</h3>
+                  <div class="job__company text-secondary">
+                    Globerce Inc. -
+                    <span> Almaty, Kazakhstan </span>
+                  </div>
+                </div>
+                <ul class="job__bullets">
+                  <li class="text-primary">
+                    • Integrated car sales services for direct consumer access,
+                    enhancing customer experience.
+                  </li>
+                  <li class="text-primary">
+                    • Troubleshot and resolved issues in Python applications,
+                    improving application reliability.
+                  </li>
+                  <li class="text-primary">
+                    • Collaborated with team members to implement software
+                    solutions for travel management, streamlining processes.
+                  </li>
+                </ul>
+              </div>
+            </article>
+            <article class="experience__item two-column-layout">
+              <div class="job__dates text-secondary text-large">
+                Dec 2021 – Jan 2023
+              </div>
+              <div class="job__content flex-column">
+                <div class="experience__meta flex-column">
+                  <h3 class="job__title text-title">Python Developer</h3>
+                  <div class="job__company text-secondary">
+                    Appetite Inc. -
+                    <span> Almaty, Kazakhstan </span>
+                  </div>
+                </div>
+                <ul class="job__bullets">
+                  <li class="text-primary">
+                    • Developed backend for food delivery application to enhance
+                    order processing and user experience.
+                  </li>
+                  <li class="text-primary">
+                    • Worked with NestJS to build scalable server-side
+                    applications, improving application performance.
+                  </li>
+                </ul>
+              </div>
+            </article>
+            <article class="experience__item two-column-layout">
+              <div class="job__dates text-secondary text-large">
+                Sep 2020 – Oct 2021
+              </div>
+              <div class="job__content flex-column">
+                <div class="experience__meta flex-column">
+                  <h3 class="job__title text-title">Python Developer Intern</h3>
+                  <div class="job__company text-secondary">
+                    Development Technologies LTD -
+                    <span> Astana, Kazakhstan </span>
+                  </div>
+                </div>
+                <ul class="job__bullets">
+                  <li class="text-primary">
+                    • Developed EdTech project for programming education,
+                    enhancing learning experience.
+                  </li>
+                  <li class="text-primary">
+                    • Collaborated with team to design user-friendly application
+                    features, improving user engagement.
+                  </li>
+                </ul>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2 class="section__title text-title">Education</h2>
+          <div>
+            <div class="education__item two-column-layout">
+              <div class="education__year text-secondary text-large">
+                Sep 2016 - May 2020
+              </div>
+              <div class="education__details flex-column">
+                <h3 class="education__degree text-title">
+                  Eurasian National University
+                </h3>
+                <div class="education__school text-secondary"></div>
+                <div class="education__list">
+                  <p class="education__text text-primary">
+                    Bachelor’s Degree in Computer Engineering And Software
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="education__item two-column-layout">
+              <div class="education__year text-secondary text-large">
+                May 2020 - Mar 2022
+              </div>
+              <div class="education__details flex-column">
+                <h3 class="education__degree text-title">
+                  International Information Technology University
+                </h3>
+                <div class="education__school text-secondary"></div>
+                <div class="education__list">
+                  <p class="education__text text-primary">
+                    Master’s Degree in Computer Engineering And Software
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2 class="section__title text-title">Skills</h2>
+          <div class="skills__wrapper two-column-layout">
+            <div></div>
+            <ul class="skills__list two-column-grid">
+              <li class="skill flex-between">
+                <span class="skill__name text-primary bold"> Python </span>
+                <span class="skill__level text-primary medium"> </span>
+              </li>
+              <li class="skill flex-between">
+                <span class="skill__name text-primary bold"> TypeScript </span>
+                <span class="skill__level text-primary medium"> </span>
+              </li>
+              <li class="skill flex-between">
+                <span class="skill__name text-primary bold"> Django </span>
+                <span class="skill__level text-primary medium"> </span>
+              </li>
+              <li class="skill flex-between">
+                <span class="skill__name text-primary bold"> Vue </span>
+                <span class="skill__level text-primary medium"> </span>
+              </li>
+              <li class="skill flex-between">
+                <span class="skill__name text-primary bold"> FastAPI </span>
+                <span class="skill__level text-primary medium"> </span>
+              </li>
+              <li class="skill flex-between">
+                <span class="skill__name text-primary bold"> React </span>
+                <span class="skill__level text-primary medium"> </span>
+              </li>
+            </ul>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>
